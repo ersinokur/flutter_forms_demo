@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_forms_demo/mixins/validation_mixin.dart';
 
 class CustomerAdd extends StatefulWidget {
   _CustomerAddState createState() => _CustomerAddState();
 }
 
-class _CustomerAddState extends State<CustomerAdd> {
+class _CustomerAddState extends State<CustomerAdd> with ValidationMixin {
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -27,32 +28,29 @@ class _CustomerAddState extends State<CustomerAdd> {
 
   Widget firstNameField() {
     return TextFormField(
-      validator: (String value) {
-        if(value.length<2)
-        {
-          return "name must be at least 2 characters";
-        }
-      },
+        validator: validateFirstName,
         decoration: InputDecoration(
             labelText: "First Name", hintText: "type your name"));
   }
 
   Widget lastNameField() {
     return TextFormField(
+        validator: validateLastName,
         decoration: InputDecoration(
             labelText: "Last Name", hintText: "type your last name"));
   }
 
   Widget emailNameField() {
     return TextFormField(
-      keyboardType: TextInputType.emailAddress,
+        validator: validateEmail,
+        keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
             labelText: "e-mail", hintText: "type your e-mail adress"));
   }
 
   Widget passwordField() {
     return TextFormField(
-      obscureText: true,
+        obscureText: true,
         decoration: InputDecoration(
             labelText: "password", hintText: "type your password"));
   }

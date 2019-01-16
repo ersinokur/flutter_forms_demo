@@ -13,12 +13,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: AppBar(title: Text("Custome Save"),),
-      body: CustomerAdd(),
+        appBar: AppBar(
+          title: Text("Custome Save"),
+        ),
+        body: CustomerAdd(),
       ),
-      
     );
   }
 }
-
-
