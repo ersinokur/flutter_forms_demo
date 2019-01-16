@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_forms_demo/screens/customerAdd.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,25 +12,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: Scaffold(
+        appBar: AppBar(title: Text("Custome Save"),),
+      body: CustomerAdd(),
+      ),
+      
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
 
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("eo"),
-        ),
-        body: Center(
-            // This trailing comma makes auto-formatting nicer for build methods.
-            ));
-  }
-}
