@@ -5,11 +5,13 @@ class CustomerAdd extends StatefulWidget {
 }
 
 class _CustomerAddState extends State<CustomerAdd> {
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(25.0),
       child: Form(
+        key: formKey,
         child: Column(
           children: <Widget>[
             firstNameField(),
@@ -25,6 +27,12 @@ class _CustomerAddState extends State<CustomerAdd> {
 
   Widget firstNameField() {
     return TextFormField(
+      validator: (String value) {
+        if(value.length<2)
+        {
+          return "name must be at least 2 characters";
+        }
+      },
         decoration: InputDecoration(
             labelText: "First Name", hintText: "type your name"));
   }
@@ -52,7 +60,9 @@ class _CustomerAddState extends State<CustomerAdd> {
   Widget submitButton() {
     return RaisedButton(
       child: Text("Save"),
-      onPressed: () {},
+      onPressed: () {
+        this.formKey.currentState.validate();
+      },
     );
   }
 }
