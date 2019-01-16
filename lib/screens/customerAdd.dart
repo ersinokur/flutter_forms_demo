@@ -37,12 +37,14 @@ class _CustomerAddState extends State<CustomerAdd> {
 
   Widget emailNameField() {
     return TextFormField(
+      keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
             labelText: "e-mail", hintText: "type your e-mail adress"));
   }
 
   Widget passwordField() {
     return TextFormField(
+      obscureText: true,
         decoration: InputDecoration(
             labelText: "password", hintText: "type your password"));
   }

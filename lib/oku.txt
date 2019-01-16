@@ -1,0 +1,3 @@
+adresinden josn veri ornekleri alabirim
+
+https://jsonplaceholder.typicode.com
