@@ -75,8 +75,14 @@ class _CustomerAddState extends State<CustomerAdd> with ValidationMixin {
       onPressed: () {
         if (this.formKey.currentState.validate()) {
           formKey.currentState.save();
+          saveCustomer(customer);
         }
       },
     );
+  }
+
+  void saveCustomer(Customer customer) {
+// do something....
+    print(customer.firstName);
   }
 }
